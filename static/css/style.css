@@ -1,4 +1,6 @@
-
+/* body {
+    background: red !important;
+} */
 /* Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -218,6 +220,259 @@ nav ul li a:hover {
 
 
 /* ===========================
+   How It Works
+=========================== */
+
+.how-it-works {
+    padding: 80px;
+    background: #F8FAFC;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-top: 50px;
+}
+
+.step-card {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid #E2E8F0;
+    transition: .3s;
+}
+
+.step-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, .08);
+}
+
+.step-card span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #2563EB;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.step-card h3 {
+    margin-bottom: 12px;
+}
+
+.step-card p {
+    color: #64748B;
+    line-height: 1.6;
+}
+/* ===========================
+   Testimonials
+=========================== */
+
+.testimonials {
+    padding: 80px;
+    background: #ffffff;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 50px;
+}
+
+.testimonial-card {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    padding: 30px;
+    transition: .3s;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(37, 99, 235, .12);
+}
+
+.testimonial-card p {
+    color: #475569;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.testimonial-card h4 {
+    color: #1E293B;
+}
+
+.testimonial-card span {
+    color: #64748B;
+    font-size: 14px;
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+footer {
+    background: #0F172A;
+    color: white;
+    padding: 60px 80px 30px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.footer-logo h2 {
+    color: #3B82F6;
+    margin-bottom: 10px;
+}
+
+.footer-logo p {
+    color: #CBD5E1;
+}
+
+.footer-links {
+    display: flex;
+    gap: 80px;
+}
+
+.footer-links div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-links h3 {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #CBD5E1;
+    margin: 6px 0;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+footer hr {
+    margin: 40px 0 20px;
+    border: none;
+    border-top: 1px solid #334155;
+}
+
+.copyright {
+    text-align: center;
+    color: #94A3B8;
+}
+/* ===========================
+   Login
+=========================== */
+
+.auth-section {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 80vh;
+
+    background: #F8FAFC;
+}
+
+.auth-box {
+
+    width: 400px;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+
+}
+
+.auth-box h2 {
+
+    text-align: center;
+
+    margin-bottom: 10px;
+
+}
+
+.auth-box p {
+
+    text-align: center;
+
+    color: #64748B;
+
+    margin-bottom: 20px;
+
+}
+
+.auth-box form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+.auth-box input {
+
+    padding: 14px;
+
+    border: 1px solid #CBD5E1;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+}
+
+.auth-box button {
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #2563EB;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+}
+
+.auth-box button:hover {
+
+    background: #1D4ED8;
+
+}
+.logo a {
+    text-decoration: none;
+    color: #2563EB;
+    font-size: 28px;
+    font-weight: 700;
+}
+/* ===========================
    Responsive Design
 =========================== */
 
@@ -357,4 +612,28 @@ nav ul li a:hover {
 
 .features {
     padding: 50px 20px;
+}.steps {
+    grid-template-columns: 1fr;
+}
+
+.how-it-works {
+    padding: 50px 20px;
+}.testimonial-grid {
+    grid-template-columns: 1fr;
+}
+
+.testimonials {
+    padding: 50px 20px;
+}
+footer {
+    padding: 40px 20px;
+}
+
+.footer-container {
+    flex-direction: column;
+}
+
+.footer-links {
+    flex-direction: column;
+    gap: 30px;
 }

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}
+Sign Up - SkillzoAI
+{% endblock %}
+
+{% block content %}
+
+<section class="auth-section">
+
+    <div class="auth-box">
+
+        <h2>Create Your Account</h2>
+
+        <p>Start your AI Interview journey today.</p>
+
+        <form action="/signup" method="POST">
+
+            <input
+                type="text"
+                name="fullname"
+                placeholder="Full Name"
+                required
+            >
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                required
+            >
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                required
+            >
+
+            <input
+                type="password"
+                name="confirm_password"
+                placeholder="Confirm Password"
+                required
+            >
+
+            <button type="submit">
+                Create Account
+            </button>
+
+        </form>
+
+        <p>
+            Already have an account?
+            <a href="/login">Login</a>
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}
