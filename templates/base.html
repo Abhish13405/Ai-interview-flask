@@ -11,9 +11,27 @@
 </head>
 
 <body>
+    <header>
+    <nav>
+        <div class="logo">SkillzoAI</div>
 
-    {% block content %}
-    {% endblock %}
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+        <div class="auth-buttons">
+            <a href="#">Login</a>
+            <a href="#">Sign Up</a>
+        </div>
+    </nav>
+</header>
+
+{% block content %}
+{% endblock %}
+
 
 </body>
 </html>
