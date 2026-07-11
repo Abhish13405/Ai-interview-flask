@@ -34,13 +34,18 @@ Dashboard
 
     </div>
 
-    <div class="dashboard-buttons">
+  <div class="dashboard-buttons">
 
-        <a href="/resume">📄 Upload Resume</a>
-        <a href="/interview">🎤 Start Interview</a>
-        <a href="/logout">🚪 Logout</a>
+    <a href="/resume">📄 Upload Resume</a>
 
-    </div>
+    {% if resume_uploaded %}
+        <a href="/view-resume">👁 View Resume</a>
+    {% endif %}
+
+    <a href="/interview">🎤 Start Interview</a>
+    <a href="/logout">🚪 Logout</a>
+
+</div>
 
 </section>
 

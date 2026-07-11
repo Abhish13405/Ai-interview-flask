@@ -7,6 +7,8 @@ from resume_parser import extract_text
 from flask import render_template, request, redirect, session
 import secrets
 from resume_parser import extract_text, extract_email, extract_phone, extract_skills
+# for view resume
+from flask import send_from_directory
 
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(16)
@@ -105,6 +107,29 @@ def resume():
         phone = extract_phone(text)
         skills = extract_skills(text)
 
+        # ==========================
+        # Save Resume Details in Database
+        # ==========================
+
+        conn = sqlite3.connect("users.db")
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            UPDATE users
+            SET
+                resume_uploaded = ?,
+                resume_filename = ?,
+                phone = ?,
+                skills = ?
+            WHERE id = ?
+        """,
+            (1, filename, phone, ",".join(skills), session["user_id"]),
+        )
+
+        conn.commit()
+        conn.close()
+
         return render_template(
             "analysis.html", resume_text=text, email=email, phone=phone, skills=skills
         )
@@ -112,29 +137,28 @@ def resume():
     return render_template("resume.html")
 
 
-# @app.route("/interview")
-# def interview():
-#     return "<h1>Interview Page</h1>"
+@app.route("/view-resume")
+def view_resume():
+
+    if "user_id" not in session:
+        return redirect("/login")
+
+    conn = sqlite3.connect("users.db")
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT resume_filename FROM users WHERE id=?", (session["user_id"],)
+    )
+
+    result = cursor.fetchone()
+    conn.close()
+
+    if result and result[0]:
+        return send_from_directory(app.config["UPLOAD_FOLDER"], result[0])
+
+    return "Resume not found"
 
 
-# @app.route("/dashboard")
-# def dashboard():
-#     return render_template("dashboard.html")
-# @app.route("/dashboard")
-# def dashboard():
-
-#     resume_uploaded = False
-
-#     interviews = 0
-
-#     score = 0
-
-#     return render_template(
-#         "dashboard.html",
-#         resume_uploaded=resume_uploaded,
-#         interviews=interviews,
-#         score=score,
-#     )
 from flask import session, redirect
 
 
@@ -144,15 +168,33 @@ def dashboard():
     if "user_id" not in session:
         return redirect("/login")
 
-    resume_uploaded = False
-    interviews = 0
-    score = 0
+    conn = sqlite3.connect("users.db")
+    cursor = conn.cursor()
+
+    cursor.execute(
+        """
+        SELECT
+            resume_uploaded,
+            interviews_completed,
+            average_score
+        FROM users
+        WHERE id = ?
+    """,
+        (session["user_id"],),
+    )
+
+    # data = cursor.fetchone()
+    data = cursor.fetchone()
+
+    print("Session User ID:", session["user_id"])
+    print("Dashboard Data:", data)
+    conn.close()
 
     return render_template(
         "dashboard.html",
-        resume_uploaded=resume_uploaded,
-        interviews=interviews,
-        score=score,
+        resume_uploaded=bool(data[0]),
+        interviews=data[1],
+        score=data[2],
     )
 
 
