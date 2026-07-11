@@ -472,6 +472,65 @@ footer hr {
     font-size: 28px;
     font-weight: 700;
 }
+/* Dashboard */
+
+.dashboard {
+
+    padding: 80px;
+
+}
+
+.dashboard h1 {
+
+    margin-bottom: 40px;
+
+}
+
+.dashboard-cards {
+
+    display: flex;
+
+    gap: 30px;
+
+    margin-bottom: 40px;
+
+}
+
+.dash-card {
+
+    flex: 1;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+
+}
+
+.dashboard-buttons {
+
+    display: flex;
+
+    gap: 20px;
+
+}
+
+.dashboard-buttons a {
+
+    text-decoration: none;
+
+    background: #2563EB;
+
+    color: white;
+
+    padding: 15px 30px;
+
+    border-radius: 10px;
+
+}
 /* ===========================
    Responsive Design
 =========================== */

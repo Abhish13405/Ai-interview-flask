@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Resume Upload{% endblock %}
+
+{% block content %}
+
+<section class="auth-section">
+
+    <div class="auth-box">
+
+        <h2>Upload Your Resume</h2>
+
+        <form action="/resume" method="POST" enctype="multipart/form-data">
+
+            <input type="file" name="resume" accept=".pdf,.docx" required>
+
+            <button type="submit">
+                Upload Resume
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+{% endblock %}

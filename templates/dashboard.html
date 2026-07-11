@@ -6,15 +6,39 @@ Dashboard
 
 {% block content %}
 
-<section class="hero">
+<section class="dashboard">
 
-    <div class="hero-left">
+    <h1>Welcome, {{ session['name'] }} 👋</h1>
 
-        <h1>Welcome to SkillzoAI Dashboard 🎉</h1>
+    <div class="dashboard-cards">
 
-        <p>
-            Your account has been successfully logged in.
-        </p>
+        <div class="dash-card">
+            <h2>Resume Status</h2>
+
+            {% if resume_uploaded %}
+                <p style="color:green;">✅ Uploaded</p>
+            {% else %}
+                <p style="color:red;">❌ Not Uploaded</p>
+            {% endif %}
+        </div>
+
+        <div class="dash-card">
+            <h2>Interviews</h2>
+            <p>{{ interviews }}</p>
+        </div>
+
+        <div class="dash-card">
+            <h2>Average Score</h2>
+            <p>{{ score }}%</p>
+        </div>
+
+    </div>
+
+    <div class="dashboard-buttons">
+
+        <a href="/resume">📄 Upload Resume</a>
+        <a href="/interview">🎤 Start Interview</a>
+        <a href="/logout">🚪 Logout</a>
 
     </div>
 

@@ -1,0 +1,32 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+Resume Analysis
+{% endblock %}
+
+{% block content %}
+
+<h2>Resume Analysis</h2>
+
+<hr>
+
+<p><strong>Email:</strong> {{ email }}</p>
+
+<p><strong>Phone:</strong> {{ phone }}</p>
+
+<h3>Skills</h3>
+
+<ul>
+{% for skill in skills %}
+    <li>{{ skill }}</li>
+{% endfor %}
+</ul>
+
+<hr>
+
+<h3>Resume Text</h3>
+
+<pre>{{ resume_text }}</pre>
+
+{% endblock %}
